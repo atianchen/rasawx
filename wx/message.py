@@ -29,9 +29,9 @@ class WxMsg():
     def toXML(self):
         root = ElementTree.Element("xml")
         toUserNameNode = ElementTree.SubElement(root,'ToUserName')
-        toUserNameNode.text = self.toUserName
+        toUserNameNode.text = ElementTree.CDATA(self.toUserName)
         fromUserNameNode = ElementTree.SubElement(root,"FromUserName")
-        fromUserNameNode.text = self.fromUserName
+        fromUserNameNode.text = ElementTree.CDATA(self.fromUserName)
         contentNode = ElementTree.SubElement(root,"Content")
         contentNode.text = ElementTree.CDATA(self.content)
         if not self.msgId.isspace():
@@ -44,23 +44,15 @@ class WxMsg():
         return ElementTree.dump(root)
 
 
+<<<<<<< HEAD
 
 
     def toXml(self) -> str:
         return None
 
 
+=======
+>>>>>>> 4eaab027c8d49f01f8e36d123d5eb7a52e094218
     def __str__(self):
         return "%s %s %s " % (self.msgId, self.msgType,self.fromUserName)
 
-xml = '''<xml>
-      <ToUserName><![CDATA[toUser]]></ToUserName>
-      <FromUserName><![CDATA[fromUser]]></FromUserName>
-      <CreateTime>1348831860</CreateTime>
-      <MsgType><![CDATA[text]]></MsgType>
-      <Content><![CDATA[this is a test]]></Content>
-      <MsgId>1234567890123456</MsgId>
-    </xml>'''
-msg = WxMsg(xml)
-print(msg.__str__())
-print(msg.toXML())
