@@ -25,7 +25,7 @@ class WxMsg():
         self.createTime = root.findtext("CreateTime")
         self.content = root.findtext("Content")
 
-<<<<<<< HEAD:wx/msg/WxMsg.py
+
     def toXML(self):
         root = ElementTree.Element("xml")
         toUserNameNode = ElementTree.SubElement(root,'ToUserName')
@@ -45,10 +45,10 @@ class WxMsg():
 
 
 
-=======
+
     def toXml(self) -> str:
         return None
->>>>>>> 466204a3b7374169e518f64788c0f280f82cb1ef:wx/message.py
+
 
     def __str__(self):
         return "%s %s %s " % (self.msgId, self.msgType,self.fromUserName)
